@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html>
+    <head>
+  
+    <style>
+        table, th, td {
+  border: 1px solid black; border-collapse: collapse; padding: 10px;
+  
+} 
+#pot {
+  bottom: 5%;
+  position: absolute;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 10s;
+  transform: rotate(360deg);
+}
+@@-webkit-keyframes run {
+  0% {
+    left: 0;
+  }
+  48% {
+    -webkit-transform: rotateY(0deg); 
+  }
+  50% { 
+    left: calc(100% - 100px);
+    -webkit-transform: rotateY(180deg); 
+  }
+  98% {
+    -webkit-transform: rotateY(180deg); 
+  }
+  100% {
+    left: 0;    
+     -webkit-transform: rotateY(0deg);
+  }
+}
+header {
+  background-color: rgb(214, 236, 12);
+  padding: 5px;
+  font-size: 15px;
+}
+p {
+  float: left;
+  padding: 20px;
+  width: 50%;
+  background-color:darkgray;
+  height: 100px;
+}
+
+    </style>
+    </head>
+    <body style="background-color: whitesmoke;">
+      <header>
+        <h1 style="text-align: center; color: red; font-family: Helvetica (sans-serif); text-shadow: 2px 3px 4px orangered;" >Chicken Fry</h1>
+      </header>
+        <hr>
+        <p style="font-size: 20px; color:brown;">Meanwhile, many West African peoples had traditions of seasoned fried chicken (though battering and cooking the chicken in palm oil).
+            Clockwise: A fried chicken breast, wing, thigh, and leg &empty; chicken &#128525;
+        </p>
+       <div style="float:left;"> 
+        <mark>fry Types</mark> 
+        <ul style="list-style-type:lower-greek; font-size:24px;">
+            <li>deep fried</li>
+            <li>oven-fried</li>
+            <li>pan-fried</li>
+          </ul></div>
+          
+        <table><tr>
+            <th>S.NO</th>
+            <th>course</th>
+            <th>Entree</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Serving temperature</th>
+            <th>Hot or cold</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Main ingredients</th>
+            <th>Chicken, batter or seasoned flour</th>
+        </tr>
+    </table>
+</div> 
+<iframe   width="300" height="300" style="float:right"
+src="https://www.youtube.com/embed/-lwHfv0iMgY?autoplay=0&mute=1"> 
+</iframe> 
+<div id="pot">
+        <img src="https://i2.wp.com/www.bharatzkitchen.com/wp-content/uploads/2020/08/fried-chicken.jpg" style="border: 2px solid orange;" width=250px height=250px></img>
+    </div>
+</body>
+    
+</html>

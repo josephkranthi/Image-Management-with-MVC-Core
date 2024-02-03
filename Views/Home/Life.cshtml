@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="utf-8">
+<meta name="viewpoint" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row">
+        <button type="button" class="col-sm-3 p-3 bg-success text-white">child age</button>
+        <button type="button" class="col-sm-3 p-3 bg-info text-white">young age</button>
+        <button type="button" class="col-sm-3 p-3 bg-warning text-white">middle age</button>
+        <button type="button" class="col-sm-3 p-3 bg-danger text-white">old age</button>
+    </div>
+    <table class="table  table-light table-hover">
+        <thead>
+            <tr>
+                <th>human  <span class="glyphicon glyphicon-user"></span></th>
+                <th>situation</th>
+                <th>age</th>
+                <th>progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>learning</td>
+                <td>3-21<div class="spinner-border text-success"></div></td>
+                <td class="progress">
+                    <div class="progress-bar bg-success" style="width:30%"></div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>running for money</td>
+                <td>21-45<div class="spinner-border text-warning"></div></td>
+                <td class="progress">
+                    <div class="progress-bar bg-warning" style="width:60%"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>unhealthy</td>
+                <td>45-60<div class="spinner-border text-danger"></div></td>
+                <td class="progress">
+                    <div class="progress-bar bg-danger" style="width:90%"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="float:left ;">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFwGeOw54TRDhRTrMxCfAhrVCRsda3_3eipM-jaBJFBeoYKB3vpYiAg-pIzOOrESWbukw&usqp=CAU" alt="Los Angeles" class="d-block" style="width:auto">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://static.billygraham.org/sites/billygraham.org/uploads/pro/2013/03/BillyGrahamPhoto.jpg" alt="Chicago" class="d-block" style="width:auto">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.eternitynews.com.au/wp-content/uploads/2018/02/billy-graham.jpg" alt="New York" class="d-block" style="width:200px">
+                </div>
+            </div>
+
+            <!-- right controls/icon -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="card" style="width: 50rem; float: right;">
+        <img src="https://i.fbcd.co/products/resized/resized-750-500/0a91b76605375125e94979cf8df6059b642b1277747dae505516a8e4e4488715.webp" class="card-img-top" style="width: 500px;" alt="...">
+        <div class="card-body">
+            <h5 class="card-title" style="color: orange;">Death</h5>
+            <p class="card-text" style="color: red;">Do not fear those who kill the body but cannot kill the soul. Rather fear him who can destroy both soul and body in hell</p>
+        </div>
+    </div>
+
+
+
+
+</div>

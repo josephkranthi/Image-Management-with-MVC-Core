@@ -1,0 +1,44 @@
+﻿@model Crud_Images.Models.Image
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h1 style="color:red;">Edit Image</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ImageId" />
+            <input type="hidden" asp-for="ImageName" />
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ImageData)" width="250" height="250" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" accept="image/*" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

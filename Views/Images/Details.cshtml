@@ -1,0 +1,30 @@
+﻿@model Crud_Images.Models.Image
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="color:indianred"> Image Details</h1>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Image Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+        <dt class="col-sm-2">
+            Uploaded Image
+        </dt>
+        <dd class="col-sm-10">
+            <img decoding="async" src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ImageData)" width="250" height="250" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ImageId" style="background-color: #f44336; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; text-decoration: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">Edit</a> |
+    <a asp-action="Index" style="background-color: #4caf50; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; text-decoration: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">Back to List</a>
+</div>

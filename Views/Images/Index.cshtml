@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Crud_Images.Models.Image>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:red; text-align:center ">Display Images</h1>
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><p style="float:inline-end; color:green;padding: 8px 16px; border: 2px solid #0f0; border-radius: 4px;">WEB SITES</p></a>
+
+<p>
+    <a asp-action="Create" style="background-color: #fff; color:black; padding: 8px 16px; border: 2px solid #0f0; border-radius: 4px; text-decoration: none; transition: background-color 0.3s;">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageData)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageName)
+            </td>
+            <td>
+                    @if (item.ImageData != null)
+                    {
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.ImageData)" width="250" height="250" />
+                    }
+                    else
+                    {
+                        <p>No image available</p>
+                    }
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.ImageId" style=" background-color: #2196f3; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; text-decoration: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ImageId" style="background-color: #4caf50; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; text-decoration: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ImageId" style="background-color: #f44336; color: #fff; padding: 8px 16px; border: none; border-radius: 4px; text-decoration: none; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
