@@ -1,5 +1,6 @@
 ## Image Project
-To manage image details in a SQL Server Database and on a local machine, you can modify images using a UI to perform CRUD operations. This involves creating, retrieving, updating, and deleting image data in the database and the local machine through the application. I have created some example websites (about fry, about life, convert json file and about nature) using HTML, CSS, Bootstrap, JavaScript, and Fetch.
+Implemented a concept-oriented strategy within an ASP.NET Core MVC framework to handle image details in both a SQL Server Database and on a local machine. This involves utilizing a user interface for modifying images. The application facilitates CRUD operations, encompassing the creation, retrieval, updating, and deletion of image data in both the database and the local machine. Additionally, I've crafted sample websites covering topics such as fries, life, JSON file conversion, and nature using HTML, CSS, Bootstrap, JavaScript, and Fetch.
+
  ## Tech Stacks
  C#, .NET MVC Core, Entity Framework Core, SQL Server, Html, bootstrap, Javascript, jquery
 
