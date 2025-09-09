@@ -1,8 +1,8 @@
 ## Image Project
-Implemented a concept-oriented strategy within an ASP.NET Core MVC framework to handle image details in both a SQL Server Database and on a local machine. This involves utilizing a user interface for modifying images. The application facilitates CRUD operations, encompassing the creation, retrieval, updating, and deletion of image data in both the database and the local machine. Additionally, I've crafted sample websites covering topics such as fries, life, JSON file conversion, and nature using HTML, CSS, Bootstrap, JavaScript, and Fetch.
+Implemented a concept-oriented strategy within an ASP.NET Core MVC framework to handle image details in both a SQL Server Database and on a local machine. This involves utilising a user interface for modifying images. The application facilitates CRUD operations, encompassing the creation, retrieval, updating, and deletion of image data in both the database and the local machine. Additionally, I've crafted sample websites covering topics such as fries, life, JSON file conversion, and nature using HTML, CSS, Bootstrap, JavaScript, and Fetch.
 
  ## Tech Stacks
- C#, .NET MVC Core, Entity Framework Core, SQL Server, Html, bootstrap, Javascript, jquery
+ C#, .NET MVC Core, Entity Framework Core, ADO.NET, Dapper, SQL Server, HTML, Bootstrap, JavaScript, jQuery
 
 ## Database Setup
 The project uses a SQL Server database to store contact information. 
@@ -24,6 +24,6 @@ To run the project, follow these steps:
 
 * Clone the project to your local machine.
 * Open the project in Visual Studio 2019 or later.
-* Ensure that you have SQl Server installed and running on your machine.
-* Open the web.config file and update the connection string to point to your Sql Server instance.
+* Ensure that you have SQL Server installed and running on your machine.
+* Open the web.config file and update the connection string to point to your SQL Server instance.
 * Run the project. The API will be hosted on http://localhost:7083.
