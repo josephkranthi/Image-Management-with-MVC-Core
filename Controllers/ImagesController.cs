@@ -1,29 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Crud_Images.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using Dapper;
+
 
 namespace Crud_Images.Controllers
 {
     public class ImagesController : Controller
     {
         private readonly ImageContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ImagesController(ImageContext context)
+
+        public ImagesController(ImageContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
+
+
+        // GET: Images
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.Images != null ? 
+        //                  View(await _context.Images.ToListAsync()) :
+        //                  Problem("Entity set 'ImageContext.Images'  is null.");
+        //}
 
         // GET: Images
         public async Task<IActionResult> Index()
         {
-              return _context.Images != null ? 
-                          View(await _context.Images.ToListAsync()) :
-                          Problem("Entity set 'ImageContext.Images'  is null.");
+            string connectionString = _configuration.GetConnectionString("DBConnection") ?? "";
+
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                string sql = "SELECT ImageId ,ImageName, ImageData FROM Images"; // adjust columns as per your table
+
+                var images = await db.QueryAsync<Image>(sql);
+
+                return View(images); // pass to View
+            }
         }
 
         // GET: Images/Details/5
@@ -164,9 +182,28 @@ namespace Crud_Images.Controllers
 
                     }
 
-                    // Update other properties and save changes
-                    _context.Update(imageModel);
-                    await _context.SaveChangesAsync();
+                    //// Update other properties and save changes
+                    //_context.Update(imageModel);
+                    //await _context.SaveChangesAsync();
+                    string connectionString = _configuration.GetConnectionString("DBConnection") ?? "";
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        await conn.OpenAsync();
+
+                        string sql = @"UPDATE Images 
+                           SET ImageName = @Name, ImageData = @Url
+                           WHERE ImageId = @Id";
+
+                        using (SqlCommand cmd = new SqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", imageModel.ImageId);
+                            cmd.Parameters.AddWithValue("@Name", imageModel.ImageName ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Url", imageModel.ImageData ?? (object)DBNull.Value);
+
+                            await cmd.ExecuteNonQueryAsync();
+                        }
+                    }
 
                     return RedirectToAction(nameof(Index));
                 }
