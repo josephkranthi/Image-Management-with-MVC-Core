@@ -1,0 +1,30 @@
+@using System.Net.Http.Json
+@inject HttpClient Http
+
+<h3>Photos (first 100)</h3>
+@if (photos is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        @foreach (var p in photos.Take(100))
+        {
+            <div style="width:220px;border:1px solid #ddd;padding:8px;text-align:center">
+                <img src="@p.thumbnailUrl" alt="@p.title" style="max-width:200px" />
+                <div>@p.id - @p.title</div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    class Photo { public int id { get; set; } public string title { get; set; } public string thumbnailUrl { get; set; } }
+    List<Photo>? photos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        photos = await Http.GetFromJsonAsync<List<Photo>>("https://jsonplaceholder.typicode.com/photos");
+    }
+}

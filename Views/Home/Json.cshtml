@@ -14,37 +14,14 @@
     }
 </style>
 <p> convert this dummy json data <a href="https://jsonplaceholder.typicode.com/photos">https://jsonplaceholder.typicode.com/photos</a></p>
-<div id="myData" ></div>
-<button onclick="add()">view data</button>
-<script>
-    function add() {
-        // data is your result from controller
-        fetch("https://jsonplaceholder.typicode.com/photos")                              //fetch function will return a promise  ,file name also kk.json,A Promise is an object representing the eventual completion or failure of an asynchronous operation
-            .then(function (responce) {                            //A promise is a pattern for handling asynchronous operations. The promise allows you to call a method called "then" that lets you specify the function(s) to use as the callbacks.
-                // the json data will arrive here
-                return responce.json();
-            })
-            .then(function (data) {                                // function will run with the json data in the responce
-                appendData(data);                                // actual json data as a parameter
-            })
-            .catch(function (err) {
-                // if an error occured, you will catch it here
-                console.log(err);
-            });
-        function appendData(data) {                              //data to our page
-            var div = document.getElementById("myData");           // fill our json data inside this div dynamically
-            div.innerHTML = '';
-            for (var i = 0; i < 100; i++) {
-                var div1 = document.createElement('div');
-                div1.innerHTML = data[i].id + ' ' + data[i].title;
-                var img = document.createElement('img');              //elememt
-                img.src = data[i].thumbnailUrl;
-                div.appendChild(div1);
-                div.appendChild(img);
-            }
-        }
-    }
-</script>
+<div>
+    @* Blazor Server component renders the photos list *@
+    <component type="typeof(Crud_Images.Pages.Photos)" render-mode="ServerPrerendered" />
+</div>
+
+@section Scripts {
+    <script src="/_framework/blazor.server.js"></script>
+}
 
 
 

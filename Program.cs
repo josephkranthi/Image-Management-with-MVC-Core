@@ -11,6 +11,8 @@ namespace Crud_Images
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddServerSideBlazor();
+            builder.Services.AddHttpClient();
 
             //Adding DBContext Service
             builder.Services.AddDbContext<ImageContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
@@ -35,6 +37,9 @@ namespace Crud_Images
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Images}/{action=Index}/{id?}");
+
+            // Map Blazor hub for Server-side components
+            app.MapBlazorHub();
 
             app.Run();
         }
